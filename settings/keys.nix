@@ -1,47 +1,46 @@
 {
   config.vim.keymaps = [
-    # Clear highlights on search when pressing <Esc>
     {
       key = "<Esc>";
       mode = ["n"];
       action = "<cmd>nohlsearch<CR>";
+      desc = "Clear highlights on search when pressing <Esc>";
     }
-    # Diagnostic keymaps
     {
       key = "<leader>q";
       mode = ["n"];
       action = ":lua vim.diagnostic.setloclist()<CR>";
       desc = "Open diagnostic [Q]uickfix list";
     }
-
-    # Exit terminal mode
     {
       key = "<Esc><Esc>";
       mode = ["t"];
       action = "<C-\\><C-n>";
       desc = "Exit terminal mode";
     }
-
-    # Disable arrow keys in normal mode
     {
       key = "<left>";
       mode = ["n"];
       action = "<cmd>echo \"use h to move, you freak\"<CR>";
+      desc = "Disable arrow key (left)";
     }
     {
       key = "<right>";
       mode = ["n"];
       action = "<cmd>echo \"use l to move, you freak\"<CR>";
+      desc = "Disable arrow key (right)";
     }
     {
       key = "<up>";
       mode = ["n"];
       action = "<cmd>echo \"use k to move, you freak\"<CR>";
+      desc = "Disable arrow key (up)";
     }
     {
       key = "<down>";
       mode = ["n"];
       action = "<cmd>echo \"use j to move, you freak\"<CR>";
+      desc = "Disable arrow key (down)";
     }
 
     # Window navigation (CTRL+hjkl)
