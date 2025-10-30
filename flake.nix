@@ -30,7 +30,10 @@
     packages.${system}.default =
       (nvf.lib.neovimConfiguration {
         inherit pkgs;
-        modules = [./settings];
+        modules = [
+          ./settings
+          ./plugins
+        ];
       }).neovim;
   };
 }

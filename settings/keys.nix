@@ -43,7 +43,7 @@
       desc = "Disable arrow key (down)";
     }
 
-    # Window navigation (CTRL+hjkl)
+    # window navigation
     {
       key = "<C-h>";
       mode = ["n"];
@@ -69,7 +69,7 @@
       desc = "Move focus to the upper window";
     }
 
-    # Tab navigation
+    # tab navigation
     {
       key = "<leader>tn";
       mode = ["n"];
@@ -101,22 +101,7 @@
       desc = "Previous tab";
     }
 
-    # File tree keybinds (Neotree)
-    # Note: You'll need to enable neo-tree in nvf
-    {
-      key = "<leader>e";
-      mode = ["n"];
-      action = "<cmd>Neotree toggle<CR>";
-      desc = "Toggle [E]xplorer";
-    }
-    {
-      key = "<leader>E";
-      mode = ["n"];
-      action = "<cmd>Neotree reveal<CR>";
-      desc = "Reveal current file in [E]xplorer";
-    }
-
-    # Quick save
+    # quick save
     {
       key = "<leader>w";
       mode = ["n"];
@@ -130,7 +115,17 @@
       desc = "Save file";
     }
 
-    # Note: Transparency toggle (<leader>tt) and autosave functionality
-    # from the original config require Lua and are not included here
+    {
+      desc = "Toggle line numbers";
+      key = "<leader>n";
+      mode = "n";
+      lua = true;
+      action = ''
+        function()
+          vim.opt.number = not vim.opt.number:get()
+          vim.opt.relativenumber = not vim.opt.relativenumber:get()
+        end
+      '';
+    }
   ];
 }
