@@ -1,6 +1,5 @@
-{
+{pkgs, ...}: {
   vim = {
-    repl.conjure.enable = true;
     utility.vim-wakatime.enable = true;
     presence.neocord = {
       enable = true;
