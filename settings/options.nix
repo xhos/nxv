@@ -1,4 +1,4 @@
-{
+{lib,... }: {
   config.vim = {
     options = {
       number = false; # hide line numbers
@@ -37,5 +37,15 @@
       enable = true; # allow this module to manage clipboard
       registers = "unnamedplus"; # sync with system clipboard
     };
+    diagnostics.config = {
+      virtual_text = true;
+      signs = true;
+      update_in_insert = true;
+    };
+    statusline.lualine.enable = true;
+    autocomplete.blink-cmp.enable = true;
+    autopairs.nvim-autopairs.enable = true;
+    visuals.fidget-nvim.enable = true;
+    git.gitsigns.enable = true;
   };
 }
