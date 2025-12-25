@@ -1,4 +1,4 @@
-{lib,... }: {
+{lib, ...}: {
   config.vim = {
     options = {
       number = false; # hide line numbers

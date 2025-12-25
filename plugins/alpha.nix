@@ -1,10 +1,13 @@
-{ lib, ... }: 
-let
+{lib, ...}: let
   # Define the button helper
-  mkButton = { command, shortcut, text }: {
+  mkButton = {
+    command,
+    shortcut,
+    text,
+  }: {
     type = "button";
     val = text;
-    on_press = { 
+    on_press = {
       __raw = ''
         function()
           local key = vim.api.nvim_replace_termcodes("${command}", true, false, true)
@@ -18,7 +21,11 @@ let
         "n"
         shortcut
         command
-        { noremap = true; silent = true; nowait = true; }
+        {
+          noremap = true;
+          silent = true;
+          nowait = true;
+        }
       ];
       position = "center";
       hl = "DashboardCenter";
@@ -32,7 +39,7 @@ in {
   vim.dashboard.alpha = {
     enable = true;
     theme = null;
-    
+
     layout = [
       {
         type = "text";
@@ -52,11 +59,14 @@ in {
         };
       }
 
-      { type = "padding"; val = 2; }
+      {
+        type = "padding";
+        val = 2;
+      }
 
       {
         type = "group";
-        opts = { spacing = 1; };
+        opts = {spacing = 1;};
         val = map mkButton [
           {
             text = "new";
@@ -82,6 +92,6 @@ in {
       }
     ];
   };
-  
+
   vim.visuals.nvim-web-devicons.enable = true;
 }
