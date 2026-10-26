@@ -18,7 +18,10 @@
     forEachSystem = nixpkgs.lib.genAttrs systems;
   in {
     packages = forEachSystem (system: let
-      pkgs = nixpkgs.legacyPackages.${system};
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) ["copilot-language-server"];
+      };
     in {
       default = (nvf.lib.neovimConfiguration {
         inherit pkgs;

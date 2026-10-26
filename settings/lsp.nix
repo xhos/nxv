@@ -10,7 +10,8 @@
       # per-language settings
       go.enable = true;
       nix.enable = true;
-      ts.enable = true;
+      typescript.enable = true;
+      tsx.enable = true;
       rust.enable = true;
       clojure.enable = true;
     };
